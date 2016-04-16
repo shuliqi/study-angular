@@ -6,15 +6,17 @@
 	<script type="text/javascript" src="js/angular.js"></script>
 </head>
 <body>
+   <!-- 第一个 -->
    {{'angular.js'}}
+   <!-- 第二个 -->
    <h3>计算值</h3>
    1.23+2.45 = {{ 1.23+2.45 | number:0}}
-
+    <!-- 第三个 -->
    <div ng-controller="user">
 	   <input ng-model = "user.name"/>
 	   <div>{{user.name}}</div>
    </div>
-
+    <!-- 第四个 -->
    <div ng-controller="data">
    	   <ul>
    	   	 <li ng-repeat = "my in data">
@@ -22,14 +24,26 @@
    	   	 	<span>{{my.sex}}</span>
    	   	 	<span>{{my.nv}}</span>
    	   	 	<span>{{my.age}}</span>
-   	   	 	
+
    	   	 </li>
    	   </ul>
    </div>
+    <!-- 第五个 -->
+   <div ng-controller="da">
+	   	<input ng-model="test"/>
+	   	<button type="button" ng-click = "show()"></button>
+   </div>
+   <!-- 第六个 js表达式容错性-->
+   <div ng-controller="error">
+   		<span>{{tmp}}</span>
+   		<button type="button" ng-click="error()"></button>
+   </div>
    <script type="text/javascript">
+    //第三个
    	  function user($scope) {
    	  	$scope.user = {name:""};
    	  }
+   	  //第四个
    	  function data($scope){
    	  	$scope.data = [
    	  	  {name:"shuliqi1",sex:"nv",age:"23"},
@@ -38,6 +52,21 @@
    	  	  {name:"shuliqi4",sex:"nv",age:"23"}, 
    	  	  {name:"shuliqi5",sex:"nv",age:"23"}
    	  	]
+   	  }
+   	  //第五个
+   	  function da($window,$scope){
+   	  	$scope.test = "";
+   	  	$scope.show = function(){
+   	  		$window.alert("你输入的内容是" + $scope.test)
+   	  	}  	  	
+   	  }
+   	  //第六个 js表达式容错性
+   	  function error($scope){
+   	  	$scope.temp = "";
+   	  	$scope.error = function(){
+   	  		console.log(tmp);
+   	  	}
+
    	  }
    </script>
 </body>
