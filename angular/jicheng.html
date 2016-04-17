@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.js"></script>
+</head>
+<body>
+<script type="text/ng=template" id="tpls">
+  姓名：{{name}},邮箱：{{email}}
+</script>
+  <div ng-include  src="'tpls'" ng-controller="shu_1">
+  </div>
+<script type="text/javascript">
+    var app = angular.module('app',[]);
+    // app.controller('shu',['$scope',function($scope) {
+    //     $scope.name = "舒丽琦";
+    // }])
+    app.controller('shu_1',['$scope',function($scopr){
+        $scope.name= "舒丽琦";
+        $scope.email = "1169046371@qq.com";
+    }])
+</script>
+</body>
+</html>

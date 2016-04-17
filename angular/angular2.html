@@ -7,15 +7,16 @@
 </head>
 <body>
 <div ng-controller="shu">
-   <span>{{text}}</span>
-   <button type="button" value="显示" ng-click="text()"></button>
+   <span>{{name}}</span>
+
+   <input type="button" value="显示" ng-click="text('竖立起')"/>
 </div>
 <script type="text/javascript">
   var app = angular.module('app',[]);
   app.controller('shu',['$scope',function($scope) {
-     $scope.text = 'skdfhsf';
-     $scope.text = function(){
-        $scope.text = 'hahahahhah';
+     $scope.name = 'skdfhsf';
+     $scope.text = function(name){
+        $scope.name = name;
      }
   }])
 </script>
