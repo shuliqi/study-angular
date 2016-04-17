@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.js"></script>
+</head>
+<body>
+<div ng-controller="shu">
+   <span>{{text}}</span>
+   <button type="button" value="显示" ng-click="text()"></button>
+</div>
+<script type="text/javascript">
+  var app = angular.module('app',[]);
+  app.controller('shu',['$scope',function($scope) {
+     $scope.text = 'skdfhsf';
+     $scope.text = function(){
+        $scope.text = 'hahahahhah';
+     }
+  }])
+</script>
+</body>
+</html>
