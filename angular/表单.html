@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-<form name="form" ng-controller="c2_1">
+<form name="form" ng-submit="submit()" ng-controller="c2_1">
     <div>
         <input name="name" ng-modle="name" type="text" required>
         <span ng-show="form.name.$error.required">姓名不能为空</span>
@@ -22,14 +22,14 @@
     <input type="submit" ng-disabled="form.$invalid" value="提交">
 </form>
 <script type="text/javascript">
-// var app = angular.module('app',[]);
-// app.controller('c2_1',['$scope','$window',function ($scope,$window) {
-//     $scope.name="舒丽琦";
-//     $scope,email= "1169046371@qq.com";
-//     $scope.submit=function(){
-//         $window.alert("成功");
-//     }
-// }])
+var app = angular.module('app',[]);
+app.controller('c2_1',['$scope','$window',function ($scope,$window) {
+    $scope.name="舒丽琦";
+    $scope,email= "1169046371@qq.com";
+    $scope.submit=function(){
+        $window.alert("成功");
+    }
+}])
 </script>
 </body>
 </html>
