@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+		<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.js"></script>
+		<style type="text/css">
+			.bold{
+				font-weight: bold;
+			}
+			.odd{
+				background: #cad;
+			}
+			.even{
+				background: #ccc;
+			}
+		</style>
+</head>
+<body>
+<div ng-controller="c2_1">
+	<ul>
+		<li ng-class="bold">
+			<span>序号</span>
+			<span>名字</span>
+			<span>性别</span>
+			<span>年龄</span>
+			<span>分数</span>
+		</li>
+		<li ng-repeat="stu in data | orderBy:'-score' | limitTo:7"
+		    ng-class-odd = "'odd'"
+		    ng-class-even="'even'">
+			<span>{{$index+1}}</span>
+			<span>{{stu.name}}</span>
+			<span>{{stu.sex}}</span>
+			<span>{{stu.age}}</span>
+			<span>{{stu.score}}</span>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+var app = angular.module('app',[]);
+app.controller('c2_1',['$scope',function($scope){
+	 $scope.bold = "bold";
+	 $scope.data=[
+	 	{name:"舒丽琦1",sex:"女",age:21,score:1},
+	 	{name:"舒丽琦2",sex:"女",age:22,score:2},
+	 	{name:"舒丽琦3",sex:"女",age:23,score:3},
+	 	{name:"舒丽琦4",sex:"女",age:24,score:4},
+	 	{name:"舒丽琦5",sex:"女",age:25,score:5},
+	 	{name:"舒丽琦6",sex:"女",age:26,score:6}
+	 ];
+}])
+</script>
+</body>
+</html>
