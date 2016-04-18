@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+		<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<style type="text/css">
+		.bold{
+			font-weight: bold;
+		}
+		.odd{
+			background: #cad;
+		}
+		.even{
+			background: #ccc;
+		}
+		.cls{
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+<div ng-czontroller="c2_1">
+	<div class="{{cls}}">{{text}}</div>
+	<button ng-click="onClick(1)" >早上</button>
+	<button ng-click="onClick(2)" >中午</button>
+	<button ng-click="onClick(3)" >下午</button>
+	<button ng-click="onClick(4)" >晚上</button>
+</div>
+<script type="text/javascript">
+var app = angular.module('app',[]);
+app.config(function ($provide) {
+	$provide.provider('show_1',function(){
+		this.$get = function(){
+			return {
+				val:function(name){
+					return name;
+				}
+			}
+		}
+	})
+})
+app.config(function($provide){
+	$provide.factory('show_2',function(){
+		return {
+			val:function(name){
+				return name;
+			}
+		}
+	});
+});
+app.config('show_3',function($provide){
+	$provide.service('show_3',function(){
+		return{
+		val:function(name){
+			return name;
+		}
+	  }
+	})
+})
+app.config('show_3',function($provide){
+	$provide.value('show_4',function(){
+		return{
+		val:function(name){
+			return name;
+		}
+	  }
+	})
+})
+app.controller('c2_1',['$scope','show_3','show_4','show_2','show_1',function ($scope,show_1,show_2,show_3,show_4) {
+		$scope.onClick = function (argument) {
+			$scope.cls="show";
+			switch(t){
+				case 1:
+				$scope.text = show_1.val("早上好！");
+				break;
+				case 2:
+				$scope.text = show_2.val("中午好！");
+				break;
+				case 3:
+				$scope.text = show_3val("下午好！");
+				break;
+				case 4:
+				$scope.text = show_4.val("晚上好！");
+				break;
+			}
+		}
+}])
+</script>
+</body>
+</html>
