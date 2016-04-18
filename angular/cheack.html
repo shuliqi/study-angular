@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.js"></script>
+    <style type="text/css">
+      
+    </style>
+</head>
+<body>
+<form name="form" ng-submit="submit()" ng-controller="c2_1">
+    <div>
+        <input name="name" 
+        ng-modle="a" type="checkbox"
+        ng-true-value="同意" 
+        ng-false-value="不同意" 
+        >同意
+        <span ng-show="form.name.$error.required">姓名不能为空</span>
+    </div>
+    <div>
+        性别：
+        <input  ng-modle="b" type="radio" value="男">男
+        <input  ng-modle="b" type="radio" value="女">女
+    </div>
+    <input type="submit" value="提交">
+    <div>{{c}}</div>
+</form>
+<script type="text/javascript">
+var app = angular.module('app',[]);
+app.controller('c2_1',['$scope','$window',function ($scope,$window) {
+    $scope.a="同意";
+    $scope.b= "男";
+    $scope.submit=function(){
+       $scope.c = '你选择的是' + $scope.a + '和' + $scope.b;
+    }
+}])
+</script>
+</body>
+</html>
