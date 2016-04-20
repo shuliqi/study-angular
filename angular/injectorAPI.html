@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.js"></script>
+</head>
+<body>
+<div ng-controller="c2_2"></div>
+<script type="text/javascript">
+	var app = angular.module('app',[]).config('$custon',function () {
+		return {
+			print:function (argument) {
+				console.log(argument);
+			}
+		}
+	})
+	var injector = angular.injector(['app','ng']);
+	var has = injector.has('$custon');
+	console.log(has);
+	if (has) {
+		var custon = injector.get('$custon');
+		custon.print("服务存在的哦O(∩_∩)O哈！")
+	}
+</script>
+</body>
+</html>

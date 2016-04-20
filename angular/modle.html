@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript" src="js/angular.js"></script>
+</head>
+<div ng-controller="c2_1">
+  <div>{{name}}</div>
+  <input ng-model="score">
+  <div>{{score}}</div>
+</div>
+<body>
+<script type="text/javascript">
+var app = angular.module('app',[]);
+app.controller('c2_1',['$scope',function ($scope) {
+    $scope.name = "舒丽琦";
+}])
+</script>
+</body>
+</html>
