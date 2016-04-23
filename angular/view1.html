@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular-1.3.0.14/angular.js"></script>
+  <script type="text/javascript" src="angular-1.3.0.14/angular-route.min.js"></script>
+</head>
+<body>
+<div ng-view></div>
+<script type="text/javascript">
+var app = angular.module('app',['ngRoute']);
+app.controller('c5_7_1',['$scope',function  ($scope) {
+	$scope.student = students;
+}])
+app.controller('c5_7_2',function($scope,$routeParams){
+	for (var i = 0; i < students.length; i++) {
+		$scope.student =  students[i]
+		break;
+	};
+})
+app.config(['$routeProvider',function  ($routeProvider) {
+	$routeProvider
+	.when('/',{
+		controller:'c5_7_1',
+		templateUrl:"student.html"
+	})
+	.when('/view/:id',{
+		controller:'c5_7_1',
+		templateUrl:"stuDate.html",
+		publicAccess:true
+	})
+	.otherwise({
+		redirectTo:'/'
+	})
+}])
+var students = [
+	{stuId:1,name:"张明1",sex:"女1",score:60},
+	{stuId:2,name:"张明2",sex:"女2",score:60},
+	{stuId:3,name:"张明3",sex:"女3",score:60},
+	{stuId:4,name:"张明4",sex:"女4",score:60},
+]
+</script>
+</body>
+</html>
