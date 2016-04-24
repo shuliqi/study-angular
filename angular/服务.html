@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular-1.3.0.14/angular.js"></script>
+  <script type="text/javascript" src="angular-1.3.0.14/angular-route.min.js"></script>
+</head>
+<body>
+<div ng-controller= "shu" class="show">当前的地址是：{{url}}</div>
+<button ng-click = "onclick()" value="地址"></button>
+<script type="text/javascript">
+var app = angular.module('app',[]);
+app.controller('shu',function ($scope,$location) {
+	$scope.onclick = function  () {
+		$scope.url = $location.absUrl();
+	}
+})
+
+</script>
+</body>
+</html>
